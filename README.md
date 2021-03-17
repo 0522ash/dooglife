@@ -2,15 +2,14 @@
 
 ## user table
 
-| column      | types  | options                    |
-| ----------- | ------ | -------------------------- |
-| user        | string | null: false                |
-| password    | string | null: false                |
-| name        | string | null: false                |
-| email       | string | null: false, unnique: true |
-| phonenumber | string | null: false                |
-| dateofbirth | date   | null: false                |
-| profile     | text   | null: false                |
+| column      | types  | options                   |
+| ----------- | ------ | ------------------------- |
+| email       | string | null: false, unique: true |
+| password    | string | null: false               |
+| username    | string | null: false, unique: true |
+| name        | string | null: false               |
+| phonenumber | string | null: false               |
+| dateofbirth | date   | null: false               |
 
 ### association
 
