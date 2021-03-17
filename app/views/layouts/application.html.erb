@@ -12,10 +12,10 @@
   <body>
     <header class="header">
       <div class="header__bar row">
-        <%= link_to image_tag("dooglife.png", class:"dooglife-icon"), "/" %>
+        <%= link_to image_tag("dooglife.png", class:"dooglife-icon"), "#" %>
         <% if user_signed_in? %>
           <div class="user_nav grid-6">
-            <span><%= current_user.username %>
+            <span><%= current_user.username %>さん
               <ul class="user__info">
                 <li>
             <%= link_to "マイページ", "/users/#{current_user.id}" %>
@@ -23,7 +23,6 @@
                 </li>
             </ul>
           </span>
-          <%= link_to "投稿する", "#", class: "post" %>
           </div>
         <% else %>
           <div class="grid-6">
@@ -31,6 +30,10 @@
             <%= link_to "新規登録", new_user_registration_path, class: "post" %>
           </div>
         <% end %>
+      </div>
+      <div class="side-menu">
+        <%= link_to image_tag("menu.png", class:"menu-icon"), "#" %>
+        <%= link_to "里親情報", fosters_path, class: "get" %>
       </div>
     </header>
     <%= yield %>

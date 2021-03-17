@@ -29,6 +29,7 @@ has_many :trainings
 | prefecture_id | integer    | null: false       |
 | gender_id     | integer    | null: false       |
 | age_id        | integer    | null: false       |
+| month_id      | integer    | null: false       |
 | vaccine_id    | integer    | null: false       |
 | castration_id | integer    | null: false       |
 | user          | references | foreign_key: true |

@@ -1,0 +1,120 @@
+<div class="foster-contents">
+  <header class="foster-header">
+
+  </header>
+  <div class="foster-main">
+    <h2 class="foster-title">商品の情報を入力</h2>
+    <%= form_with(model: @foster, local: true) do |f| %>
+
+    <%#= render 'shared/error_messages', model: f.object %>
+
+
+    <%# 出品画像 %>
+    <div class="img-upload">
+      <div class="weight-bold-text">
+        出品画像
+        <span class="indispensable">必須</span>
+      </div>
+      <div class="click-upload">
+        <p>
+          クリックしてファイルをアップロード
+        </p>
+        <%= f.file_field :image, id:"foster-image" %>
+      </div>
+    </div>
+    <%# /出品画像 %>
+
+    <%# 商品名と商品説明 %>
+    <div class="new-fosters">
+      <div class="weight-bold-text">
+        犬種
+        <span class="indispensable">必須</span>
+      </div>
+      <%= f.text_area :title, class:"fosters-text", id:"foster-name", placeholder:"犬種（必須 40文字まで)", maxlength:"40" %>
+      <div class="fosters-explain">
+        <div class="weight-bold-text">
+          犬の説明
+          <span class="indispensable">必須</span>
+        </div>
+        <%= f.text_area :detail, class:"fosters-text", id:"foster-info", placeholder:"犬の説明（必須 1,000文字まで）" ,rows:"7" ,maxlength:"1000" %>
+      </div>
+    </div>
+    <%# /名前と説明 %>
+
+    <%# 詳細 %>
+    <div class="foster-detail">
+      <div class="weight-bold-text">商品の詳細</div>
+      <div class="form">
+        <div class="weight-bold-text">
+          都道府県
+          <span class="indispensable">必須</span>
+        </div>
+        <%= f.collection_select(:prefecture_id, Prefecture.all, :id, :name, {}, {class:"select-box", id:"foster-prefecture"}) %>
+        <div class="weight-bold-text">
+          性別
+          <span class="indispensable">必須</span>
+        </div>
+        <%= f.collection_select(:gender_id, Gender.all, :id, :name, {}, {class:"select-box", id:"foster-gender"}) %>
+        <div class="weight-bold-text">
+          年齢
+          <span class="indispensable">必須</span>
+        </div>
+        <%= f.collection_select(:age_id, Age.all, :id, :name, {}, {class:"select-box", id:"foster-age"}) %>
+        <div class="weight-bold-text">
+          月
+          <span class="indispensable">必須</span>
+        </div>
+        <%= f.collection_select(:month_id, Month.all, :id, :name, {}, {class:"select-box", id:"foster-month"}) %>
+        <div class="weight-bold-text">
+          ワクチン接種
+          <span class="indispensable">必須</span>
+        </div>
+        <%= f.collection_select(:vaccine_id, Vaccine.all, :id, :name, {}, {class:"select-box", id:"foster-vaccine"}) %>
+        <div class="weight-bold-text">
+          去勢
+          <span class="indispensable">必須</span>
+        </div>
+        <%= f.collection_select(:castration_id, Castration.all, :id, :name, {}, {class:"select-box", id:"foster-castration"}) %>
+      </div>
+    </div>
+    <%# /詳細 %>
+
+    <%# 注意書き %>
+    <div class="caution">
+      <p class="sentence">
+        <a href="#">禁止されている出品、</a>
+        <a href="#">行為</a>
+        を必ずご確認ください。
+      </p>
+      <p class="sentence">
+        またブランド品でシリアルナンバー等がある場合はご記載ください。
+        <a href="#">偽ブランドの販売</a>
+        は犯罪であり処罰される可能性があります。
+      </p>
+      <p class="sentence">
+        また、出品をもちまして
+        <a href="#">加盟店規約</a>
+        に同意したことになります。
+      </p>
+    </div>
+    <%# /注意書き %>
+    <%# 下部ボタン %>
+    <div class="sell-btn-contents">
+      <%= f.submit "募集する" ,class:"foster-btn" %>
+      <%=link_to 'もどる', root_path, class:"back-btn" %>
+    </div>
+    <%# /下部ボタン %>
+  </div>
+  <% end %>
+
+  <footer class="items-sell-footer">
+    <ul class="menu">
+      <li><a href="#">プライバシーポリシー</a></li>
+      <li><a href="#">フリマ利用規約</a></li>
+      <li><a href="#">特定商取引に関する表記</a></li>
+    </ul>
+    <p class="inc">
+      ©︎Furima,Inc.
+    </p>
+  </footer>
+</div>
