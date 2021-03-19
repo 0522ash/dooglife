@@ -1,0 +1,66 @@
+<h1>test</h1>
+
+<div class="dogrun-contents">
+  <header class="dogrun-header">
+
+  </header>
+  <div class="dogrun-main">
+    <h2 class="dogrun-title">商品の情報を入力</h2>
+    <%= form_with(model: @dogrun, local: true) do |f| %>
+
+    <%#= render 'shared/error_messages', model: f.object %>
+
+
+    <%# 出品画像 %>
+    <div class="img-upload">
+      <div class="weight-bold-text">
+        画像
+        <span class="indispensable">必須</span>
+      </div>
+      <div class="click-upload">
+        <p>
+          クリックしてファイルをアップロード
+        </p>
+        <%= f.file_field :image, id:"dogrun-image" %>
+      </div>
+    </div>
+    <%# /出品画像 %>
+
+    <%# 商品名と商品説明 %>
+    <div class="new-dogruns">
+      <div class="weight-bold-text">
+        場所
+        <span class="indispensable">必須</span>
+      </div>
+      <%= f.text_area :title, class:"dogruns-text", id:"dogrun-name", placeholder:"場所（必須 40文字まで)", maxlength:"40" %>
+      <div class="dogruns-explain">
+        <div class="weight-bold-text">
+          説明
+          <span class="indispensable">必須</span>
+        </div>
+        <%= f.text_area :detail, class:"dogruns-text", id:"dogrun-info", placeholder:"説明（必須 1,000文字まで）" ,rows:"7" ,maxlength:"1000" %>
+      </div>
+    </div>
+    <%# /名前と説明 %>
+
+    <%# 詳細 %>
+    <div class="dogrun-detail">
+      <div class="weight-bold-text">詳細</div>
+      <div class="form">
+        <div class="weight-bold-text">
+          都道府県
+          <span class="indispensable">必須</span>
+        </div>
+        <%= f.collection_select(:prefecture_id, Prefecture.all, :id, :name, {}, {class:"select-box", id:"dogrun-prefecture"}) %>
+      </div>
+    </div>
+    <%# /詳細 %>
+    <%# 下部ボタン %>
+    <div class="sell-btn-contents">
+      <%= f.submit "紹介する" ,class:"dogrun-btn" %>
+      <%=link_to 'もどる', root_path, class:"back-btn" %>
+    </div>
+    <%# /下部ボタン %>
+  </div>
+  <% end %>
+</div>

@@ -1,0 +1,48 @@
+<%= form_with model: foster, local: true do |f|%>
+
+  <div class="field">
+    <%= f.label "画像" %><br />
+    <%= f.file_field :image %>
+  </div>
+  
+  <div class="field">
+    <%= f.label "タイトル" %><br />
+    <%= f.text_field :title %>
+  </div>
+
+  <div class="field">
+    <%= f.label "説明" %><br />
+    <%= f.text_area :detail, class: :form__text %>
+  </div>
+
+  <div class="field">
+    <%= f.label "都道府県" %><br />
+    <%= f.collection_select(:prefecture_id, Prefecture.all, :id, :name, {}, {class:"select-box", id:"foster-prefecture"}) %>
+  </div>
+
+  <div class="field">
+    <%= f.label "性別" %><br />
+    <%= f.collection_select(:gender_id, Gender.all, :id, :name, {}, {class:"select-box", id:"foster-gender"}) %>
+  </div>
+
+  <div class="field">
+    <%= f.label "年齢" %><br />
+    <%= f.collection_select(:age_id, Age.all, :id, :name, {}, {class:"select-box", id:"foster-age"}) %>
+    <%= f.collection_select(:month_id, Month.all, :id, :name, {}, {class:"select-box", id:"foster-month"}) %>
+  </div>
+
+  <div class="field">
+    <%= f.label "ワクチン" %><br />
+    <%= f.collection_select(:vaccine_id, Vaccine.all, :id, :name, {}, {class:"select-box", id:"foster-vaccine"}) %>
+  </div>
+
+  <div class="field">
+    <%= f.label "去勢" %><br />
+    <%= f.collection_select(:castration_id, Castration.all, :id, :name, {}, {class:"select-box", id:"foster-castration"}) %>
+  </div>
+
+  <div class="actions">
+    <%= f.submit "保存する", class: :form__btn %>
+  </div>
+<% end %>
+

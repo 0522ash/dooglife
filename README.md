@@ -41,12 +41,12 @@ belongs_to :inquiry
 
 ## inquiry table
 
-| column  | types      | options           |
-| ------- | ---------- | ----------------- |
-| text    | text       | null: false       |
-| email   | string     | null: false       |
-| inquiry | references | foreign_key :true |
-| user    | references | foreign_key: true |
+| column | types      | options           |
+| ------ | ---------- | ----------------- |
+| text   | text       | null: false       |
+| email  | string     | null: false       |
+| foster | references | foreign_key :true |
+| user   | references | foreign_key: true |
 
 ### association
 

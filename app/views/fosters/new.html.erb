@@ -1,3 +1,4 @@
+
 <div class="foster-contents">
   <header class="foster-header">
 
@@ -12,7 +13,7 @@
     <%# 出品画像 %>
     <div class="img-upload">
       <div class="weight-bold-text">
-        出品画像
+        画像
         <span class="indispensable">必須</span>
       </div>
       <div class="click-upload">
@@ -60,11 +61,9 @@
           <span class="indispensable">必須</span>
         </div>
         <%= f.collection_select(:age_id, Age.all, :id, :name, {}, {class:"select-box", id:"foster-age"}) %>
-        <div class="weight-bold-text">
-          月
-          <span class="indispensable">必須</span>
-        </div>
+          歳
         <%= f.collection_select(:month_id, Month.all, :id, :name, {}, {class:"select-box", id:"foster-month"}) %>
+          ヶ月
         <div class="weight-bold-text">
           ワクチン接種
           <span class="indispensable">必須</span>
@@ -78,43 +77,12 @@
       </div>
     </div>
     <%# /詳細 %>
-
-    <%# 注意書き %>
-    <div class="caution">
-      <p class="sentence">
-        <a href="#">禁止されている出品、</a>
-        <a href="#">行為</a>
-        を必ずご確認ください。
-      </p>
-      <p class="sentence">
-        またブランド品でシリアルナンバー等がある場合はご記載ください。
-        <a href="#">偽ブランドの販売</a>
-        は犯罪であり処罰される可能性があります。
-      </p>
-      <p class="sentence">
-        また、出品をもちまして
-        <a href="#">加盟店規約</a>
-        に同意したことになります。
-      </p>
-    </div>
-    <%# /注意書き %>
     <%# 下部ボタン %>
     <div class="sell-btn-contents">
-      <%= f.submit "募集する" ,class:"foster-btn" %>
+      <%= f.submit "募集する", class:"foster-btn" %>
       <%=link_to 'もどる', root_path, class:"back-btn" %>
     </div>
     <%# /下部ボタン %>
   </div>
   <% end %>
-
-  <footer class="items-sell-footer">
-    <ul class="menu">
-      <li><a href="#">プライバシーポリシー</a></li>
-      <li><a href="#">フリマ利用規約</a></li>
-      <li><a href="#">特定商取引に関する表記</a></li>
-    </ul>
-    <p class="inc">
-      ©︎Furima,Inc.
-    </p>
-  </footer>
 </div>

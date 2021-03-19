@@ -1,0 +1,7 @@
+<div class="card">
+  <%= link_to 'foster.image, class: :card__img ', foster_path(foster.id), method: :get %>
+  <div class="card__body">
+    <%= link_to foster.title, foster_path(foster), class: :card__title%>
+    <%= link_to "by #{foster.user.name}", user_path(foster.user), class: :card__user %>
+  </div>
+</div>

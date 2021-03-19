@@ -1,0 +1,67 @@
+<main class="main">
+  <div class="inner">
+    <div class="foster__wrapper">
+      <p class="foster__hedding">
+        <%= @foster.title %>
+      </p>
+      <%= link_to "by #{@foster.user.name}", user_path(@foster.user), class: :foster__user %>
+      <% if current_user == @foster.user%>
+        <div class="foster__manage">
+          <%= link_to "編集する", edit_foster_path(@foster), class: :foster__btn %>
+          <%= link_to "削除する", foster_path(@foster), method: :delete, class: :foster__btn %>
+        </div>
+      <% end %>
+      <div class="foster__image">
+        <%= image_tag @foster.image %>
+      </div>
+      <div class="foster__body">
+        <div class="foster__detail">
+          <p class="detail__title">タイトル</p>
+          <p class="detail__message">
+            <%= @foster.title %>
+          </p>
+        </div>
+        <div class="foster__detail">
+          <p class="detail__title">詳細</p>
+          <p class="detail__message">
+            <%= @foster.detail %>
+          </p>
+        </div>
+        <div class="foster__detail">
+          <p class="detail__title">都道府県</p>
+          <p class="detail__message">
+            <%= @foster.prefecture.name %>
+          </p>
+        </div>
+      </div>
+      <div class="foster__detail">
+        <p class="detail__title">性別</p>
+        <p class="detail__message">
+          <%= @foster.gender.name %>
+        </p>
+      </div>
+      <div class="foster__detail">
+        <p class="detail__title">年齢</p>
+        <p class="detail__message">
+          <%= @foster.age.name %>歳
+          <%= @foster.month.name %>ヶ月
+        </p>
+      </div>
+      <div class="foster__detail">
+        <p class="detail__title">ワクチン</p>
+        <p class="detail__message">
+          <%= @foster.vaccine.name %>
+        </p>
+      </div>
+      <div class="foster__detail">
+        <p class="detail__title">去勢</p>
+        <p class="detail__message">
+          <%= @foster.castration.name %>
+        </p>
+      </div>
+    </div>
+  </div>
+
+  <%= link_to image_tag("contact.png", class:"contact-icon"), "#" %>
+
+</main>
